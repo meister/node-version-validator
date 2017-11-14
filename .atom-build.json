@@ -1,0 +1,24 @@
+{
+  "cmd": "npm",
+  "name": "Test run",
+  "args": [ "test" ],
+  "sh": false,
+  "cwd": "{PROJECT_PATH}",
+  "targets": {
+    "Test coverage": {
+      "cmd": "npm run check-coverage; open coverage/index.html",
+      "sh": true
+    },
+    "Sonar preview": {
+      "cmd": "npm",
+      "name": "Sonar incremental analyze",
+      "args": [ "run", "sonar-incremental" ]
+    },
+    "Sonar preview (with results)": {
+      "cmd": "npm run sonar-incremental && open {PROJECT_PATH}/.sonar/issues-report/issues-report.html",
+      "name": "Sonar incremental analyze",
+      "sh": true
+    }
+  },
+  "errorMatch": "^(?<file>[^\\.]+.[a-z]+):(?<line>\\d+):(?<col>\\d+)"
+}

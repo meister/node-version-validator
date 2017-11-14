@@ -1,0 +1,56 @@
+{
+  "name": "@pipedrive/version-validator",
+  "version": "0.0.1",
+  "description": "Version validator module for internal libraries",
+  "main": "index.js",
+  "bin": {
+    "version-validator": "./cli.js"
+  },
+  "engines": {
+    "node": ">=8.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipedrive/node-version-validator.git"
+  },
+  "author": "Martin Kapp <kapp@pipedrive.com> (https://github.com/meister)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pipedrive/node-version-validator/issues"
+  },
+  "homepage": "https://github.com/pipedrive/node-version-validator#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "lint": "node_modules/node-hooks/bin/runner lint .",
+    "npm-version-check": "node_modules/node-hooks/bin/runner npm-version-check",
+    "npm-shrinkwrap": "node_modules/node-hooks/bin/runner npm-shrinkwrap",
+    "add-shrinkwrap": "node_modules/node-hooks/bin/npm-shrinkwrap-git",
+    "update-project-version": "node_modules/node-hooks/bin/update-project-version",
+    "sonar-preview": "node_modules/.bin/pipedrive-sonar-runner preview",
+    "sonar-report": "node_modules/.bin/pipedrive-sonar-runner report"
+  },
+  "dependencies": {
+    "cli-color": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-pipedrive": "^1.0.8",
+    "node-hooks": "git+ssh://git@github.com/pipedrive/node-hooks.git#master",
+    "pipedrive-sonar-runner": "git+ssh://git@github.com/pipedrive/pipedrive-sonar-runner.git#master"
+  },
+  "pre-commit": [
+    "lint",
+    "test",
+    "npm-version-check",
+    "npm-shrinkwrap",
+    "add-shrinkwrap",
+    "update-project-version"
+  ],
+  "pre-push": [],
+  "post-merge": [],
+  "node-hooks": {
+    "preset": "es8"
+  },
+  "dependencySum": "816714d40c4a3c41b5c13a8a5af81e36",
+  "devDependencySum": "e399296c69f2ceb4a5b5803a4ab4353d"
+}
