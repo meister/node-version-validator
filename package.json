@@ -30,7 +30,8 @@
     "sonar-report": "node_modules/.bin/pipedrive-sonar-runner report"
   },
   "dependencies": {
-    "cli-color": "^1.1.0"
+    "cli-color": "^1.1.0",
+    "cli-table": "^0.3.1"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
@@ -51,6 +52,6 @@
   "node-hooks": {
     "preset": "es8"
   },
-  "dependencySum": "816714d40c4a3c41b5c13a8a5af81e36",
+  "dependencySum": "773d4c8416a21abb3590a7edbcca985f",
   "devDependencySum": "e399296c69f2ceb4a5b5803a4ab4353d"
 }
