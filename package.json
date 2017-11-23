@@ -1,6 +1,6 @@
 {
   "name": "@pipedrive/version-validator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Version validator module for internal libraries",
   "main": "index.js",
   "bin": {
@@ -42,18 +42,11 @@
     "node-hooks": "git+ssh://git@github.com/pipedrive/node-hooks.git#master",
     "pipedrive-sonar-runner": "git+ssh://git@github.com/pipedrive/pipedrive-sonar-runner.git#master"
   },
-  "pre-commit": [
-    "lint",
-    "test",
-    "npm-version-check",
-    "npm-shrinkwrap",
-    "add-shrinkwrap",
-    "update-project-version"
-  ],
-  "pre-push": [],
-  "post-merge": [],
   "node-hooks": {
-    "preset": "es8"
+    "preset": "es8",
+    "preserve-files": [
+      "test/.eslintrc.json"
+    ]
   },
   "jest": {
     "verbose": true,
@@ -67,5 +60,15 @@
     "coverageDirectory": "coverage"
   },
   "dependencySum": "0bcad9d3e455dab81a57be2908b0730f",
-  "devDependencySum": "57c9ee6e30c90043494868158dc9e65e"
+  "devDependencySum": "57c9ee6e30c90043494868158dc9e65e",
+  "pre-commit": [
+    "lint",
+    "test",
+    "npm-version-check",
+    "npm-shrinkwrap",
+    "add-shrinkwrap",
+    "update-project-version"
+  ],
+  "pre-push": [],
+  "post-merge": []
 }
