@@ -11,7 +11,7 @@ require('yargs')
 	.usage('Usage: $0 <command> [options]')
 	.command(['list'], 'List supported versions', () => {},
 		() => {
-			listVersions();
+			process.exit(listVersions());
 		})
 	.command(['$0', 'validate'], 'Validate package.json against supported versions',
 		(yargs) => {
@@ -20,7 +20,7 @@ require('yargs')
 			}
 		},
 		() => {
-			validateVersions();
+			process.exit(validateVersions());
 		})
 	.option('debug', {
 		alias: 'x',
@@ -40,13 +40,26 @@ function printDebug() {
 function listVersions() {
 	print(cli.highlight(`List supported versions`));
 	print(cli.buildTable(['Package', 'Supported Versions'], versions.listSupported()));
+
+	return 0;
 }
 
 function validateVersions() {
+	let list = versions.listOutdated();
+
 	print(cli.highlight(`List of outdated versions`));
+
+	if (Object.keys(list).length === 0) {
+		print(cli.success('Everything is up-to-date.'));
+
+		return 0;
+	}
+
 	print(cli.buildTable(
 		['Package', 'Current version', 'Supported versions'],
 		['$key', 'current', 'supported'],
-		versions.listOutdated()
+		list
 	));
+
+	return 1;
 }
