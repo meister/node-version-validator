@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/pipedrive/node-version-validator#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "lint": "node_modules/node-hooks/bin/runner lint .",
     "npm-version-check": "node_modules/node-hooks/bin/runner npm-version-check",
     "npm-shrinkwrap": "node_modules/node-hooks/bin/runner npm-shrinkwrap",
@@ -31,11 +32,13 @@
   },
   "dependencies": {
     "cli-color": "^1.1.0",
-    "cli-table": "^0.3.1"
+    "cli-table": "^0.3.1",
+    "yargs": "^10.0.3"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-pipedrive": "^1.0.8",
+    "jest": "^21.2.1",
     "node-hooks": "git+ssh://git@github.com/pipedrive/node-hooks.git#master",
     "pipedrive-sonar-runner": "git+ssh://git@github.com/pipedrive/pipedrive-sonar-runner.git#master"
   },
@@ -52,6 +55,17 @@
   "node-hooks": {
     "preset": "es8"
   },
-  "dependencySum": "773d4c8416a21abb3590a7edbcca985f",
-  "devDependencySum": "e399296c69f2ceb4a5b5803a4ab4353d"
+  "jest": {
+    "verbose": true,
+    "testRegex": "/test/.*\\.js$",
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/test/**"
+    ],
+    "coverageDirectory": "coverage"
+  },
+  "dependencySum": "0bcad9d3e455dab81a57be2908b0730f",
+  "devDependencySum": "57c9ee6e30c90043494868158dc9e65e"
 }
