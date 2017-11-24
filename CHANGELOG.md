@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Validator now uses Jest test framework and initial tests
 - Support for command line arguments. See `-h` for details
 - Default command (or `validate`) now lists invalid versions
+- Support for JSON output.
 
 ### Changed
 - Previous default command (no arguments) is moved to `list` command instead

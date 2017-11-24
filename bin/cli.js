@@ -19,14 +19,21 @@ require('yargs')
 				printDebug();
 			}
 		},
-		() => {
-			process.exit(validateVersions());
+		(argv) => {
+			process.exit(validateVersions(argv.format));
 		})
 	.option('debug', {
 		alias: 'x',
 		default: false,
 		describe: 'Print debug messages'
 	})
+	.option('format', {
+		alias: 'f',
+		default: 'text',
+		describe: 'Output format',
+		choices: ['text', 'json']
+	})
+	.requiresArg('format')
 	.help('h')
 	.alias('h', 'help')
 	.argv;
@@ -44,8 +51,16 @@ function listVersions() {
 	return 0;
 }
 
-function validateVersions() {
+function validateVersions(format) {
 	let list = versions.listOutdated();
+
+	if (format === 'json') {
+		print(JSON.stringify({
+			outdated: list
+		}));
+
+		return Math.min(Object.keys(list).length, 1);
+	}
 
 	print(cli.highlight(`List of outdated versions`));
 
