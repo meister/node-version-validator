@@ -39,8 +39,8 @@
     "eslint": "^3.19.0",
     "eslint-config-pipedrive": "^1.0.8",
     "jest": "^21.2.1",
-    "node-hooks": "git+ssh://git@github.com/pipedrive/node-hooks.git#master",
-    "pipedrive-sonar-runner": "git+ssh://git@github.com/pipedrive/pipedrive-sonar-runner.git#master"
+    "node-hooks": "git+ssh://git@github.com/pipedrive/node-hooks.git#v1.3.1",
+    "pipedrive-sonar-runner": "git+ssh://git@github.com/pipedrive/pipedrive-sonar-runner.git#nogrunt"
   },
   "node-hooks": {
     "preset": "es8",
@@ -60,7 +60,7 @@
     "coverageDirectory": "coverage"
   },
   "dependencySum": "0bcad9d3e455dab81a57be2908b0730f",
-  "devDependencySum": "57c9ee6e30c90043494868158dc9e65e",
+  "devDependencySum": "8c03b3728513612075121199daf298fc",
   "pre-commit": [
     "lint",
     "test",
