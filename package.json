@@ -1,6 +1,6 @@
 {
   "name": "@pipedrive/version-validator",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Version validator module for internal libraries",
   "main": "index.js",
   "bin": {
