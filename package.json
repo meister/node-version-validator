@@ -26,9 +26,10 @@
     "npm-version-check": "node_modules/node-hooks/bin/runner npm-version-check",
     "npm-shrinkwrap": "node_modules/node-hooks/bin/runner npm-shrinkwrap",
     "update-project-version": "node_modules/node-hooks/bin/update-project-version",
-    "sonar-preview": "node_modules/.bin/pipedrive-sonar-runner preview",
-    "sonar-report": "node_modules/.bin/pipedrive-sonar-runner report",
-    "add-npm-lockfile": "node_modules/node-hooks/bin/git-add-npm-lockfile"
+    "sonar-preview": "node_modules/.bin/pipedrive-sonar-scanner preview",
+    "sonar-report": "node_modules/.bin/pipedrive-sonar-scanner report",
+    "add-npm-lockfile": "node_modules/node-hooks/bin/git-add-npm-lockfile",
+    "sonar-ci": "node_modules/.bin/pipedrive-sonar-scanner ci"
   },
   "dependencies": {
     "cli-color": "^1.1.0",
@@ -36,11 +37,11 @@
     "yargs": "^11.0.0"
   },
   "devDependencies": {
+    "@pipedrive/sonar-scanner": "^2.0.1",
     "eslint": "^4.16.0",
     "eslint-config-pipedrive": "^2.0.0",
     "jest": "^22.1.4",
-    "node-hooks": "git+ssh://git@github.com/pipedrive/node-hooks.git#v1.4.1",
-    "pipedrive-sonar-runner": "git+ssh://git@github.com/pipedrive/pipedrive-sonar-runner.git#nogrunt"
+    "node-hooks": "git+ssh://git@github.com/pipedrive/node-hooks.git#v1.4.1"
   },
   "node-hooks": {
     "preset": "es8",
@@ -60,7 +61,7 @@
     "coverageDirectory": "coverage"
   },
   "dependencySum": "cb3e96713e33d0b204fb485b5dfa4893",
-  "devDependencySum": "3cea245bf1dd866da278edf45a0182ef",
+  "devDependencySum": "042e9f44edb9df8db67fbaad367685ef",
   "pre-commit": [
     "lint",
     "test",

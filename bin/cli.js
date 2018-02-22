@@ -52,7 +52,7 @@ function listVersions() {
 }
 
 function validateVersions(format) {
-	let list = versions.listOutdated();
+	const list = versions.listOutdated();
 
 	if (format === 'json') {
 		print(JSON.stringify({
