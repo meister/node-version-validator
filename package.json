@@ -22,13 +22,13 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "lint": "node_modules/node-hooks/bin/runner lint .",
-    "npm-version-check": "node_modules/node-hooks/bin/runner npm-version-check",
-    "npm-shrinkwrap": "node_modules/node-hooks/bin/runner npm-shrinkwrap",
-    "update-project-version": "node_modules/node-hooks/bin/update-project-version",
+    "lint": "node_modules/@pipedrive/node-hooks/bin/runner lint .",
+    "npm-version-check": "node_modules/@pipedrive/node-hooks/bin/runner npm-version-check",
+    "npm-shrinkwrap": "node_modules/@pipedrive/node-hooks/bin/runner npm-shrinkwrap",
+    "update-project-version": "node_modules/@pipedrive/node-hooks/bin/update-project-version",
     "sonar-preview": "node_modules/.bin/pipedrive-sonar-scanner preview",
     "sonar-report": "node_modules/.bin/pipedrive-sonar-scanner report",
-    "add-npm-lockfile": "node_modules/node-hooks/bin/git-add-npm-lockfile",
+    "add-npm-lockfile": "node_modules/@pipedrive/node-hooks/bin/git-add-npm-lockfile",
     "sonar-ci": "node_modules/.bin/pipedrive-sonar-scanner ci"
   },
   "dependencies": {
@@ -37,11 +37,11 @@
     "yargs": "^11.0.0"
   },
   "devDependencies": {
+    "@pipedrive/node-hooks": "^2.0.0-rc.1",
     "@pipedrive/sonar-scanner": "^2.0.1",
     "eslint": "^4.16.0",
     "eslint-config-pipedrive": "^2.0.0",
-    "jest": "^22.1.4",
-    "node-hooks": "git+ssh://git@github.com/pipedrive/node-hooks.git#v1.4.1"
+    "jest": "^22.1.4"
   },
   "node-hooks": {
     "preset": "es8",
@@ -61,7 +61,7 @@
     "coverageDirectory": "coverage"
   },
   "dependencySum": "cb3e96713e33d0b204fb485b5dfa4893",
-  "devDependencySum": "042e9f44edb9df8db67fbaad367685ef",
+  "devDependencySum": "47f7d7897f33218cfc77ab113e373ca6",
   "pre-commit": [
     "lint",
     "test",
