@@ -1,7 +1,7 @@
 {
   "env": {
-    "mocha": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "rules": {
     "newline-after-var": "off",

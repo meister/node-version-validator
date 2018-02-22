@@ -1,6 +1,6 @@
 {
   "name": "@pipedrive/version-validator",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Version validator module for internal libraries",
   "main": "index.js",
   "bin": {
@@ -20,38 +20,56 @@
   },
   "homepage": "https://github.com/pipedrive/node-version-validator#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "lint": "node_modules/node-hooks/bin/runner lint .",
     "npm-version-check": "node_modules/node-hooks/bin/runner npm-version-check",
     "npm-shrinkwrap": "node_modules/node-hooks/bin/runner npm-shrinkwrap",
-    "add-shrinkwrap": "node_modules/node-hooks/bin/npm-shrinkwrap-git",
     "update-project-version": "node_modules/node-hooks/bin/update-project-version",
-    "sonar-preview": "node_modules/.bin/pipedrive-sonar-runner preview",
-    "sonar-report": "node_modules/.bin/pipedrive-sonar-runner report"
+    "sonar-preview": "node_modules/.bin/pipedrive-sonar-scanner preview",
+    "sonar-report": "node_modules/.bin/pipedrive-sonar-scanner report",
+    "add-npm-lockfile": "node_modules/node-hooks/bin/git-add-npm-lockfile",
+    "sonar-ci": "node_modules/.bin/pipedrive-sonar-scanner ci"
   },
   "dependencies": {
     "cli-color": "^1.1.0",
-    "cli-table": "^0.3.1"
+    "cli-table": "^0.3.1",
+    "yargs": "^11.0.0"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-pipedrive": "^1.0.8",
-    "node-hooks": "git+ssh://git@github.com/pipedrive/node-hooks.git#master",
-    "pipedrive-sonar-runner": "git+ssh://git@github.com/pipedrive/pipedrive-sonar-runner.git#master"
+    "@pipedrive/sonar-scanner": "^2.0.1",
+    "eslint": "^4.16.0",
+    "eslint-config-pipedrive": "^2.0.0",
+    "jest": "^22.1.4",
+    "node-hooks": "git+ssh://git@github.com/pipedrive/node-hooks.git#v1.4.1"
   },
+  "node-hooks": {
+    "preset": "es8",
+    "preserve-files": [
+      "test/.eslintrc.json"
+    ]
+  },
+  "jest": {
+    "verbose": true,
+    "testRegex": "/test/.*\\.js$",
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/test/**"
+    ],
+    "coverageDirectory": "coverage"
+  },
+  "dependencySum": "cb3e96713e33d0b204fb485b5dfa4893",
+  "devDependencySum": "042e9f44edb9df8db67fbaad367685ef",
   "pre-commit": [
     "lint",
     "test",
     "npm-version-check",
     "npm-shrinkwrap",
-    "add-shrinkwrap",
+    "add-npm-lockfile",
     "update-project-version"
   ],
   "pre-push": [],
-  "post-merge": [],
-  "node-hooks": {
-    "preset": "es8"
-  },
-  "dependencySum": "773d4c8416a21abb3590a7edbcca985f",
-  "devDependencySum": "e399296c69f2ceb4a5b5803a4ab4353d"
+  "post-merge": []
 }
