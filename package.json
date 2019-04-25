@@ -1,5 +1,5 @@
 {
-  "name": "@pipedrive/version-validator",
+  "name": "version-validator",
   "version": "0.2.1",
   "description": "Version validator module for internal libraries",
   "main": "index.js",
@@ -11,43 +11,35 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pipedrive/node-version-validator.git"
+    "url": "git+https://github.com/meister/node-version-validator.git"
   },
-  "author": "Martin Kapp <kapp@pipedrive.com> (https://github.com/meister)",
-  "license": "MIT",
+  "author": "Martin Kapp <martin@coderats.net> (https://github.com/meister)",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pipedrive/node-version-validator/issues"
+    "url": "https://github.com/meister/node-version-validator/issues"
   },
-  "homepage": "https://github.com/pipedrive/node-version-validator#readme",
+  "homepage": "https://github.com/meister/node-version-validator#readme",
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "lint": "node_modules/@pipedrive/node-hooks/bin/runner lint .",
-    "npm-version-check": "node_modules/@pipedrive/node-hooks/bin/runner npm-version-check",
-    "npm-shrinkwrap": "node_modules/@pipedrive/node-hooks/bin/runner npm-shrinkwrap",
-    "update-project-version": "node_modules/@pipedrive/node-hooks/bin/update-project-version",
-    "sonar-preview": "node_modules/.bin/pipedrive-sonar-scanner preview",
-    "sonar-report": "node_modules/.bin/pipedrive-sonar-scanner report",
-    "add-npm-lockfile": "node_modules/@pipedrive/node-hooks/bin/git-add-npm-lockfile",
-    "sonar-ci": "node_modules/.bin/pipedrive-sonar-scanner ci"
+    "lint": "eslint ."
   },
   "dependencies": {
     "cli-color": "^1.1.0",
     "cli-table": "^0.3.1",
-    "yargs": "^11.0.0"
+    "yargs": "^13.2.2"
   },
   "devDependencies": {
-    "@pipedrive/node-hooks": "^2.0.0-rc.1",
-    "@pipedrive/sonar-scanner": "^2.0.1",
-    "eslint": "^4.16.0",
-    "eslint-config-pipedrive": "^2.0.0",
-    "jest": "^22.1.4"
+    "eslint": "^5.16.0",
+    "eslint-config-pipedrive": "^4.0.0",
+    "husky": "^2.1.0",
+    "jest": "^24.7.1",
+    "npm-run-all": "^4.1.5"
   },
-  "node-hooks": {
-    "preset": "es8",
-    "preserve-files": [
-      "test/.eslintrc.json"
-    ]
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all --parallel lint test"
+    }
   },
   "jest": {
     "verbose": true,
@@ -59,17 +51,5 @@
       "!**/test/**"
     ],
     "coverageDirectory": "coverage"
-  },
-  "dependencySum": "cb3e96713e33d0b204fb485b5dfa4893",
-  "devDependencySum": "47f7d7897f33218cfc77ab113e373ca6",
-  "pre-commit": [
-    "lint",
-    "test",
-    "npm-version-check",
-    "npm-shrinkwrap",
-    "add-npm-lockfile",
-    "update-project-version"
-  ],
-  "pre-push": [],
-  "post-merge": []
+  }
 }

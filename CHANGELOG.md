@@ -20,7 +20,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.0.1] - 2017-11-14
 ### Added
 - Project setup
-- Tools: node-hooks, sonar-runner.
 - Display list of supported versions
 
 [Unreleased]: https://github.com/pipedrive/node-version-validator/compare/v0.0.1...HEAD

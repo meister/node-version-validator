@@ -43,7 +43,6 @@ function printDebug() {
 	print(`Validator root is ${cli.highlight(findValidatorRoot())}.\n`);
 }
 
-
 function listVersions() {
 	print(cli.highlight(`List supported versions`));
 	print(cli.buildTable(['Package', 'Supported Versions'], versions.listSupported()));
