@@ -1,4 +1,5 @@
-# Package version validator
-Version validator module for internal libraries
+# Package Version Validator
 
-Currently at version v0.0.1
+[![Build Status](https://travis-ci.org/meister/node-version-validator.svg?branch=master)](https://travis-ci.org/meister/node-version-validator)
+
+Version validator module for validating dependency versions against blacklisted / whitelisted versions.
